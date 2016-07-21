@@ -1,7 +1,7 @@
 {
   "name": "hooks-fixed",
   "description": "Adds pre and post hook functionality to your JavaScript methods.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "keywords": [
     "node",
     "hooks",
