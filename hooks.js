@@ -6,10 +6,10 @@ module.exports = {
    *  @param {Function} the method
    *  @param {Function} the error handler callback
    */
-  hook: function (name, fn, errorCb) {
+  $hook: function (name, fn, errorCb) {
     if (arguments.length === 1 && typeof name === 'object') {
       for (var k in name) { // `name` is a hash of hookName->hookFn
-        this.hook(k, name[k]);
+        this.$hook(k, name[k]);
       }
       return;
     }
@@ -174,7 +174,7 @@ module.exports = {
   
   _lazySetupHooks: function (proto, methodName, errorCb) {
     if ('undefined' === typeof proto[methodName].numAsyncPres) {
-      this.hook(methodName, proto[methodName], errorCb);
+      this.$hook(methodName, proto[methodName], errorCb);
     }
   }
 };
