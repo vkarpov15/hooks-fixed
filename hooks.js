@@ -14,7 +14,7 @@ module.exports = {
       return;
     }
 
-    var proto = this.prototype || this
+    var proto = this
       , pres = proto._pres = proto._pres || {}
       , posts = proto._posts = proto._posts || {};
     pres[name] = pres[name] || [];
@@ -119,7 +119,7 @@ module.exports = {
       fn = isAsync;
       isAsync = false;
     }
-    var proto = this.prototype || this
+    var proto = this
       , pres = proto._pres = proto._pres || {};
 
     this._lazySetupHooks(proto, name, errorCb);
@@ -136,7 +136,7 @@ module.exports = {
       fn = isAsync;
       isAsync = false;
     }
-    var proto = this.prototype || this
+    var proto = this
       , posts = proto._posts = proto._posts || {};
     
     this._lazySetupHooks(proto, name);
@@ -144,7 +144,7 @@ module.exports = {
     return this;
   },
   removePre: function (name, fnToRemove) {
-    var proto = this.prototype || this
+    var proto = this
       , pres = proto._pres || (proto._pres || {});
     if (!pres[name]) return this;
     if (arguments.length === 1) {
@@ -158,7 +158,7 @@ module.exports = {
     return this;
   },
   removePost: function (name, fnToRemove) {
-    var proto = this.prototype || this
+    var proto = this
       , posts = proto._posts || (proto._posts || {});
     if (!posts[name]) return this;
     if (arguments.length === 1) {
