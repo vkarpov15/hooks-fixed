@@ -62,7 +62,7 @@ module.exports = {
               try {
                 return currPre.apply(self, preArgs);
               } catch (error) {
-                next(error);
+                _next(error);
               }
             } else if (!_asyncsLeft) {
               return _done.apply(self, hookArgs);
