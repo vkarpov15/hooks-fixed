@@ -59,7 +59,11 @@ module.exports = {
               preArgs = (currPre.isAsync
                           ? [once(_next), once(_asyncsDone)]
                           : [once(_next)]).concat(hookArgs);
-              return currPre.apply(self, preArgs);
+              try {
+                return currPre.apply(self, preArgs);
+              } catch (error) {
+                next(error);
+              }
             } else if (!_asyncsLeft) {
               return _done.apply(self, hookArgs);
             }
